@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  body {
+    font-family: Arial;
+    text-align: center;
+    margin-top: 100px;
+    background: #f5f5dc;
+  }
+  button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    background: tomato;
+    color: white;
+    cursor: pointer;
+  }
+  #result {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+</style>
+</head>
+<body>
+<h2> Luffy's Bounty</h2>
+<button onclick="fight()">Fight Marine</button>
+<p id="result">Defeat Marines to earn berries!</p>
+<script>
+function luffy() {                 // Closure
+  let wins = 0;
+  return (move, bounty) => {
+    wins++;
+    result.innerHTML =
+      ` Wins: ${wins}<br> Bounty: ${move(bounty)} berries`;
+  };
+}
+const fruit = x => y => x * y;     // Currying
+function memo(fn) {                // Memoization
+  const cache = {};
+  return n => cache[n] || (cache[n] = fn(n));
+}
+const battle = luffy();
+const gear5 = memo(fruit(5));
+function fight() {                 // Higher-Order Function
+  battle(gear5, 1000);
+}
+</script>
+</body>
+</html>
+
+
+

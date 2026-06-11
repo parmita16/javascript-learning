@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JS Quiz</title>
+</head>
+<body>
+
+  <h2>JavaScript Quiz</h2>
+  <p>3 questions , one from each main topic</p>
+
+  <!-- Q1 - Objects -->
+  <p><b>Q1. Objects</b></p>
+  <p>You have this object. How do you get the name?</p>
+  <pre>const person = { name: "Luffy", age: 19 };</pre>
+  <button onclick="check(this, true)">person.name</button>
+  <button onclick="check(this, false)">person[name]</button>
+  <button onclick="check(this, false)">person->name</button>
+  <p id="fb1" style="display:none; color:gray;"> person.name uses dot notation to get "Luffy"</p>
+  <hr>
+
+  <!-- Q2 - DOM -->
+  <p><b>Q2. DOM Manipulation</b></p>
+  <p>What does this line do when the button is clicked?</p>
+  <pre>message.textContent = "Naruto became Hokage!";</pre>
+  <button onclick="check(this, false)">Deletes the message element</button>
+  <button onclick="check(this, true)">Changes the text inside message</button>
+  <button onclick="check(this, false)">Changes the color of message</button>
+  <p id="fb2" style="display:none; color:gray;"> textContent replaces the text shown inside the selected element</p>
+  <hr>
+
+  <!-- Q3 - Promises -->
+  <p><b>Q3. Promises</b></p>
+  <p>Which part runs when something goes WRONG?</p>
+  <pre>titan.then(msg => ...).catch(err => ...);</pre>
+  <button onclick="check(this, false)">.then()</button>
+  <button onclick="check(this, true)">.catch()</button>
+  <button onclick="check(this, false)">Both always run</button>
+  <p id="fb3" style="display:none; color:gray;"> .catch() runs only when reject() is called — when something fails</p>
+  <hr>
+
+  <p id="score"></p>
+
+<script>
+
+  let answered = 0;
+  let score    = 0;
+
+  function check(clickedBtn, isCorrect) {
+
+    // disable all buttons in this question
+    const allButtons = clickedBtn.parentElement.querySelectorAll("button");
+    allButtons.forEach(function(btn) {
+      btn.disabled = true;
+    });
+
+    // green if correct, red if wrong
+    if (isCorrect) {
+      clickedBtn.style.color = "green";
+      score++;
+    } else {
+      clickedBtn.style.color = "red";
+    }
+
+    // show the feedback
+    answered++;
+    const feedback = clickedBtn.parentElement.querySelector("p[id^='fb']");
+    feedback.style.display = "block";
+
+    // show final score after all 3
+    if (answered === 3) {
+      document.getElementById("score").textContent = "Your Score: " + score + " / 3";
+    }
+  }
+
+</script>
+</body>
+</html>
+
+

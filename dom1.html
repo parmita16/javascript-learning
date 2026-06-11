@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<body>
+ <h1 id="message">Naruto is training...</h1>
+    <button id="btn">
+        Click Me
+    </button>
+    <script>
+        const message = document.querySelector("#message");
+        const button = document.querySelector("#btn");
+        button.addEventListener("click", function () {
+            message.textContent = "Naruto became Hokage!";
+        });
+    </script>
+</body>
+</html>

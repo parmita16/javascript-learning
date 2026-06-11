@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.sageMode{
+    color: orange;
+    font-size: 40px;
+}
+</style>
+</head>
+<body>
+    <h1 id="naruto">
+        Naruto
+    </h1>
+    <button id="btn">
+        Activate Sage Mode
+    </button>
+    <script>
+        const naruto = document.querySelector("#naruto");
+        const button = document.querySelector("#btn");
+        button.addEventListener("click", function () {
+            naruto.classList.toggle("sageMode");
+        });
+    </script>
+</body>
+</html>
+

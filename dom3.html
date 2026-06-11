@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <button id="btn">
+        Create Shadow Clone
+    </button>
+    <ul id="list">
+    </ul>
+    <script>
+        const button = document.querySelector("#btn");
+        const list = document.querySelector("#list");
+        button.addEventListener("click", function () {
+            const newClone = document.createElement("li");
+            newClone.textContent = "Shadow Clone";
+            list.appendChild(newClone);
+        });
+    </script>
+</body>
+</html>
+
+

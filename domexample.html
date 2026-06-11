@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.hokage{
+    color: orange;
+    font-size: 40px;
+}
+</style>
+</head>
+<body>
+    <h1 id="title">
+        Naruto Uzumaki
+    </h1>
+    <button id="hokageBtn">
+        Become Hokage
+    </button>
+    <button id="cloneBtn">
+        Create Clone
+    </button>
+    <ul id="cloneList">
+    </ul>
+    <script>
+        const title = document.querySelector("#title");
+        const hokageBtn = document.querySelector("#hokageBtn");
+        const cloneBtn = document.querySelector("#cloneBtn");
+        const cloneList = document.querySelector("#cloneList");
+        hokageBtn.addEventListener("click", function () {
+            title.textContent = "Naruto became Hokage!";
+            title.classList.add("hokage");
+        });
+        cloneBtn.addEventListener("click", function () {
+            const clone = document.createElement("li");
+            clone.textContent = "Shadow Clone";
+            cloneList.appendChild(clone);
+        });
+    </script>
+</body>
+</html>
+
+
